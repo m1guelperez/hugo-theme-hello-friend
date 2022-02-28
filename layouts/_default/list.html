@@ -19,8 +19,9 @@
             >{{ end }}
 
 
-          {{ if $.Site.Params.ShowReadingTime }}
-            <span class="post-read-time"
+          {{ if (and ($.Site.Params.showReadingTime) (eq .Params.identifier "overview")) }}
+          {{else if ($.Site.Params.showReadingTime)}}
+          <span class="post-read-time"
               >— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
             >
           {{ end }}
